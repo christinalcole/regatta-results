@@ -1,5 +1,4 @@
-require "regatta_results/version"
+require_relative "./regatta_results/version"
 
-module RegattaResults
-  # Your code goes here...
-end
+
+require_relative "./regatta_results/cli"
