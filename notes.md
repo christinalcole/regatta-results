@@ -17,3 +17,11 @@ user enters race, prompts for second-level details:
 user enters division name/number, gives second-level details:
 "select a series (1, 2, 3, 4, 5) for finish order, finish time, etc"
 user enters series number, finds third-level details (individual times for that particular race)
+
+UI, AYC site:
+Results -(URL change/new page)->handicap (e.g., PHRF 1) -(URL chg/same page)-> series standing (overall) -(URL chg/new page)-> individual race finish times
+
+user: 1. picks race
+      2. picks handicap/division
+      3. picks individual race in series, if applicable
+      4. views individual race results
