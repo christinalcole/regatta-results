@@ -3,6 +3,8 @@ class RegattaResults::CLI
   def call
     puts "test statement for 2016 regattas:"
     list_races
+    #pick race for division/handicap details, then list division/handicap details
+    #pick division/handicap for finish times, then list division/handicap finish times
   end
 
   def list_races
@@ -14,5 +16,5 @@ class RegattaResults::CLI
     5. May 14	Spring Harbor Regatta
     doc
   end
-  
+
 end
