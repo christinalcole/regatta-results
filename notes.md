@@ -16,4 +16,4 @@ user enters race, prompts for second-level details:
 
 user enters division name/number, gives second-level details:
 "select a series (1, 2, 3, 4, 5) for finish order, finish time, etc"
-user enters series number, fives third-level details (individual times for that particular race)
+user enters series number, finds third-level details (individual times for that particular race)
