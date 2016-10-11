@@ -84,11 +84,5 @@ class RegattaResults::CLI
     def goodbye
       puts "See you next race!"
     end
-
-  # each series has: name, division(s), date/time scored, number_of_races scored, overall_standing, url, boat_list
-  # each race has: name(number), divisions(s) (** are divisions needed at race level?...), date/time scored, url, boat_list
-  # OPTION: each boat has: overall_standing in series, finish time in race
-
-
-
+    
 end

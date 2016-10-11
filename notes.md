@@ -25,3 +25,9 @@ user: 1. picks race
       2. picks handicap/division
       3. picks individual race in series, if applicable
       4. views individual race results
+
+each regatta has: name, URL (new), division(s), date/time scored, number_of_races scored, number_of_boats(?)
+each division has: name, URL (bookmarked), overall_standing, race(s), notes
+each race has: name(number), URL (new) standings (finish time, etc), details (date/time scored, course length)
+
+#future option?: each boat has: overall_standing in series, finish time in race
