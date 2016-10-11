@@ -4,7 +4,7 @@ class RegattaResults::CLI
     puts "test statement for 2016 regattas:"
     list_races
     division_menu
-    #division_finish
+    goodbye
   end
 
   def list_races
@@ -79,6 +79,10 @@ class RegattaResults::CLI
           puts "Race 3 results..."
         end
       end
+    end
+
+    def goodbye
+      puts "See you next race!"
     end
 
   # each series has: name, division(s), date/time scored, number_of_races scored, overall_standing, url, boat_list
