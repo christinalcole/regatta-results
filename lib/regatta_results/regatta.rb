@@ -1,16 +1,16 @@
 class RegattaResults::Regatta
 
   attr_accessor :name, :url
-  
+
   def self.year
     # ultimately returns instances of Regatta as a list of regattas held in the year
-    puts <<-doc
-    1. Jan. 1	Hangover Bowl
-    2. Jan 31 - Mar 20	Frostbite - Second Half
-    3. April 23	Spring One Design Regatta
-    4. April 27 - June 1	WNR Series 1
-    5. May 14	Spring Harbor Regatta
-    doc
+    # puts <<-doc
+    # 1. Jan. 1	Hangover Bowl
+    # 2. Jan 31 - Mar 20	Frostbite - Second Half
+    # 3. April 23	Spring One Design Regatta
+    # 4. April 27 - June 1	WNR Series 1
+    # 5. May 14	Spring Harbor Regatta
+    # doc
 
     regatta_1 = self.new
     regatta_1.name = "Jan. 1	Hangover Bowl"
