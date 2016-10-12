@@ -10,6 +10,10 @@ class RegattaResults::CLI
   def list_regattas
     regattas = RegattaResults::Regatta.year
 
+    regattas.each.with_index(1) do |regatta, i|
+      puts "#{i}. #{regatta.name}"
+    end
+
   end
 
   def division_menu
