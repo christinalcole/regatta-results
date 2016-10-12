@@ -1,0 +1,2 @@
+class RegattaResults::Regatta
+end
