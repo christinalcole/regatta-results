@@ -8,13 +8,8 @@ class RegattaResults::CLI
   end
 
   def list_regattas
-    puts <<-doc
-    1. Jan. 1	Hangover Bowl
-    2. Jan 31 - Mar 20	Frostbite - Second Half
-    3. April 23	Spring One Design Regatta
-    4. April 27 - June 1	WNR Series 1
-    5. May 14	Spring Harbor Regatta
-    doc
+    regattas = RegattaResults::Regatta.year
+
   end
 
   def division_menu
