@@ -20,7 +20,7 @@ class RegattaResults::Regatta
     regatta_2 = self.new
     regatta_2.name = "Jan 31 - Mar 20	Frostbite - Second Half"
     regatta_2.url = "http://www.annapolisyc.com/files/20152016FrostbiteSeriesSecondHalf.html"
-    regatta_2.divisions - "Cal 25 - Harbor 20 - J/105 - J/22 - J/70 - J/80 - PHRF 1 - PHRF 2 - PHRF 3"
+    regatta_2.divisions = "Cal 25 - Harbor 20 - J/105 - J/22 - J/70 - J/80 - PHRF 1 - PHRF 2 - PHRF 3"
 
     regatta_3 = self.new
     regatta_3.name = "April 23	Spring One Design Regatta"
