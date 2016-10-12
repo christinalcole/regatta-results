@@ -2,12 +2,12 @@ class RegattaResults::CLI
 
   def call
     puts "test statement for 2016 regattas:"
-    list_races
+    list_regattas
     division_menu
     goodbye
   end
 
-  def list_races
+  def list_regattas
     puts <<-doc
     1. Jan. 1	Hangover Bowl
     2. Jan 31 - Mar 20	Frostbite - Second Half
@@ -84,5 +84,5 @@ class RegattaResults::CLI
     def goodbye
       puts "See you next race!"
     end
-    
+
 end
