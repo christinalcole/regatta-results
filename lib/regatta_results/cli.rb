@@ -22,22 +22,12 @@ class RegattaResults::CLI
       puts "Each regatta scores multiple divisions/handicaps.  Enter the number of the regatta for which you'd like division/handicap details:"
       input = gets.strip
 
-      case input
-      when "1"
-        puts "There were 99 entries: Cal 25 - Harbor 20 - J/105 - J/22 - J/70 - J/80 - PHRF 1 - PHRF 2 - PHRF 3"
+      if input.to_i > 0
+
+        puts "These divisions were scored: #{@regattas[input.to_i - 1].divisions}"
         division_finish
-      when "2"
-        puts "there were 96 entries: Cal 25 - Harbor 20 - J/105 - J/22 - J/70 - J/80 - PHRF 1 - PHRF 2 - PHRF 3"
-        division_finish
-      when "3"
-        puts "here's more about regatta 3"
-        division_finish
-      when "4"
-        puts "here's more about regatta 4"
-        division_finish
-      when "5"
-        puts "here's more about regatta 5"
-        division_finish
+      else ## ** logic needs to be corrected here...UI is still opaque/loop seems to run an extra time
+        puts "Not sure what you mean, enter a regatta number or exit"
       end
     end
 
