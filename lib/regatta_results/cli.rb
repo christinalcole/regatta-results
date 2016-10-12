@@ -8,9 +8,9 @@ class RegattaResults::CLI
   end
 
   def list_regattas
-    regattas = RegattaResults::Regatta.year
+    @regattas = RegattaResults::Regatta.year
 
-    regattas.each.with_index(1) do |regatta, i|
+    @regattas.each.with_index(1) do |regatta, i|
       puts "#{i}. #{regatta.name}"
     end
 
