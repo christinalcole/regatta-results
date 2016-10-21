@@ -1,31 +1,42 @@
 class RegattaResults::CLI
 
   def call
-    puts "test statement for 2016 regattas:"
-    list_regattas
+    puts "test statement for 2016 WNR Series, PHRF 1:"
+    list_boats
     division_menu
     goodbye
   end
 
-  def list_regattas
-    @regattas = RegattaResults::Regatta.year
-
-    @regattas.each.with_index(1) do |regatta, i|
-      puts "#{i}. #{regatta.name}"
-    end
+  def list_boats
+    puts <<-DOC
+      1. Xiberger
+      2. Wanda
+      3. Qa2
+      4. Monkey Dust
+      5. Gratitude
+      6. Hall Pass
+      7. Capricorne
+      8. MI2
+      9. Serenity
+      DOC
+    # @regattas = RegattaResults::Regatta.year
+    #
+    # @regattas.each.with_index(1) do |regatta, i|
+    #   puts "#{i}. #{regatta.name}"
+    # end
 
   end
 
   def division_menu
     input = nil
     while input != "exit"
-      puts "Each regatta scores multiple divisions/handicaps.  Enter the number of the regatta for which you'd like division/handicap details:"
+      puts "These boats raced in PHRF 1.  Enter the boat's number to see its overall standings in the series:"
       input = gets.strip
 
       if input.to_i > 0
 
         puts "These divisions were scored: #{@regattas[input.to_i - 1].divisions}"
-        division_finish
+        #division_finish
       else ## ** logic needs to be corrected here...UI is still opaque/loop seems to run an extra time
         puts "Not sure what you mean, enter a regatta number or exit"
       end
@@ -33,25 +44,25 @@ class RegattaResults::CLI
 
   end
 
-  def division_finish
-    finish_input = nil
-    while finish_input != "exit"
-      puts "Select a division/handicap for the list of scored races:"
-      finish_input = gets.strip
-
-      case finish_input
-      when "PHRF 1"
-        puts "here's the PHRF 1 results"
-        race_results
-      when "PHRF 2"
-        puts "here's the PHRF 2 results"
-        race_results
-      when "PHRF 3"
-        puts "here's the PHRF 3 results"
-        race_results
-      end
-    end
-  end
+  # def division_finish
+  #   finish_input = nil
+  #   while finish_input != "exit"
+  #     puts "Select a division/handicap for the list of scored races:"
+  #     finish_input = gets.strip
+  #
+  #     case finish_input
+  #     when "PHRF 1"
+  #       puts "here's the PHRF 1 results"
+  #       race_results
+  #     when "PHRF 2"
+  #       puts "here's the PHRF 2 results"
+  #       race_results
+  #     when "PHRF 3"
+  #       puts "here's the PHRF 3 results"
+  #       race_results
+  #     end
+  #   end
+  # end
 
     def race_results
       race_input = nil
