@@ -1,10 +1,19 @@
 class RegattaResults::CLI
 
   def call
-    puts "test statement for 2016 WNR Series, PHRF 1:"
-    list_boats
-    division_menu
+    puts "The 2016 WNR Series, PHRF 1:"
+    list_series # first-level data: user selects WNR series
+    list_boats # second-level view: user selects boat
+    boat_details # detailed view: user sees boat's overall standings for series
     goodbye
+  end
+
+  def list_series
+    puts <<-DOC
+    1. April 27 - June 1	WNR Series 1
+    2.  June 8 - July 20	WNR Series 2
+    3.  July 27 - Aug 31	WNR Series 3
+    DOC
   end
 
   def list_boats
