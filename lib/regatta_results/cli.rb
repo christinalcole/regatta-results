@@ -17,6 +17,10 @@ class RegattaResults::CLI
   end
 
   def list_boats
+    input = nil
+    while input != "exit"
+      puts "These boats raced in PHRF 1.  Enter the boat's number to see its overall standings in the series:"
+      input = gets.strip
     puts <<-DOC
       1. Xiberger
       2. Wanda
@@ -33,6 +37,7 @@ class RegattaResults::CLI
     # @regattas.each.with_index(1) do |regatta, i|
     #   puts "#{i}. #{regatta.name}"
     # end
+    end
 
   end
 
