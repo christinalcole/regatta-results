@@ -26,7 +26,9 @@ class RegattaResults::CLI
         puts "Here are the Series 3 boats"
       when "list"
         list_series
-      else #fix here: typing 'exit' triggers the else message; loop should just exit
+      when "exit"
+        goodbye
+      else 
         puts "Invalid"
       end
     end
@@ -43,8 +45,7 @@ class RegattaResults::CLI
   def list_boats
     input = nil
     while input != "exit"
-      puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
-      input = gets.strip
+
     puts <<-DOC
       1. Xiberger
       2. Wanda
@@ -56,6 +57,9 @@ class RegattaResults::CLI
       8. MI2
       9. Serenity
       DOC
+
+      puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
+      input = gets.strip
     # @regattas = RegattaResults::Regatta.year
     #
     # @regattas.each.with_index(1) do |regatta, i|
