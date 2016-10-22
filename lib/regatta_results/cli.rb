@@ -46,21 +46,45 @@ class RegattaResults::CLI
   def list_boats
     input = nil
     while input != "exit"
-
-    puts <<-DOC
-      1. Xiberger
-      2. Wanda
-      3. Qa2
-      4. Monkey Dust
-      5. Gratitude
-      6. Hall Pass
-      7. Capricorne
-      8. MI2
-      9. Serenity
-      DOC
-
       puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
-      input = gets.strip
+      puts <<-DOC
+        1. Xiberger
+        2. Wanda
+        3. Qa2
+        4. Monkey Dust
+        5. Gratitude
+        6. Hall Pass
+        7. Capricorne
+        8. MI2
+        9. Serenity
+        DOC
+
+        input = gets.strip.downcase
+
+        case input #needs an invalid-entry case?
+        when "1"
+          puts "Xiberger's standings"
+        when "2"
+          puts "Wanda's standings"
+        when "3"
+          puts "This boat's standings"
+        when "4"
+          puts "That boat's standings"
+        when "5"
+          puts "more on boat 5"
+        when "6"
+          puts "and here's boat 6"
+        when "7"
+          puts "boat number 7..."
+        when "8"
+          puts "boat 8..."
+        when "9"
+          puts "last one, boat 9"
+        when "list"
+          list_boats
+        end
+
+
     # @regattas = RegattaResults::Regatta.year
     #
     # @regattas.each.with_index(1) do |regatta, i|
