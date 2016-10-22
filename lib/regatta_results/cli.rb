@@ -3,11 +3,35 @@ class RegattaResults::CLI
   def call
     puts "The 2016 WNR Series, PHRF 1:"
     list_series # first-level data: user selects WNR series
-    list_boats # second-level view: user selects boat
-    boat_details # detailed view: user sees boat's overall standings for series
-    goodbye
+    menu
+    #list_boats # second-level view: user selects boat
+    #boat_details # detailed view: user sees boat's overall standings for series
+    #goodbye
   end
-``
+
+  def menu
+    input = nil
+
+    until input == "exit"
+      puts "Enter the number of the series for which you'd like to see a list of PHRF 1 entries, 'list' to see 2016 series, or 'exit' to quit:"
+
+      input = gets.strip.downcase
+
+      case input
+      when "1"
+        puts "Here are the Series 1 boats"
+      when "2"
+        puts "Here are the Series 2 boats"
+      when "3"
+        puts "Here are the Series 3 boats"
+      when "list"
+        list_series
+      else #fix here: typing 'exit' triggers the else message; loop should just exit
+        puts "Invalid"
+      end
+    end
+  end
+
   def list_series
     puts <<-DOC
     1. April 27 - June 1	WNR Series 1
