@@ -43,7 +43,7 @@ class RegattaResults::CLI
   def list_boats
     input = nil
     while input != "exit"
-      puts "These boats raced in PHRF 1.  Enter the boat's number to see its overall standings in the series:"
+      puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
       input = gets.strip
     puts <<-DOC
       1. Xiberger
