@@ -20,6 +20,7 @@ class RegattaResults::CLI
       case input
       when "1"
         puts "Here are the Series 1 boats"
+        list_boats
       when "2"
         puts "Here are the Series 2 boats"
       when "3"
@@ -28,7 +29,7 @@ class RegattaResults::CLI
         list_series
       when "exit"
         goodbye
-      else 
+      else
         puts "Invalid"
       end
     end
