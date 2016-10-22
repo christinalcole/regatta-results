@@ -23,8 +23,10 @@ class RegattaResults::CLI
         list_boats
       when "2"
         puts "Here are the Series 2 boats"
+        list_boats
       when "3"
         puts "Here are the Series 3 boats"
+        list_boats
       when "list"
         list_series
       when "exit"
