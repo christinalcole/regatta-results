@@ -49,17 +49,9 @@ class RegattaResults::CLI
     input = nil
     while input != "exit"
       puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
-      puts <<-DOC
-        1. Xiberger
-        2. Wanda
-        3. Qa2
-        4. Monkey Dust
-        5. Gratitude
-        6. Hall Pass
-        7. Capricorne
-        8. MI2
-        9. Serenity
-        DOC
+      
+
+        @boats = RegattaResults::Regatta.all  #newly added line
 
         input = gets.strip.downcase
 
