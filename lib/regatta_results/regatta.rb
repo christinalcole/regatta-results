@@ -1,6 +1,6 @@
 class RegattaResults::Regatta
 
-  # attr_accessor :name, :url, :divisions, :race
+  attr_accessor :name, :boats, :url # :divisions, :race
 
   def self.all
     # should return a list of all the boat instances that raced in the series
