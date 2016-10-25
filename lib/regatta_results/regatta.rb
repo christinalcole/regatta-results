@@ -2,7 +2,13 @@ class RegattaResults::Regatta
 
   attr_accessor :name, :boats, :url # :divisions, :race
 
+  @@all = []
+
   def self.all
+    @@all
+  end
+
+  def self.boats
     # should return a list of all the boat instances that raced in the series
     puts <<-DOC
       1. Xiberger
