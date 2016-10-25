@@ -16,6 +16,13 @@ Scraper class instantiates a Boat; third-level view is of Boat attributes
 
 Boat attributes: overall_position, sail_number, name, raceX_standing (e.g, 1-2-3-etc), total_points
 
+
+misc scraping notes:
+
+address: http://www.annapolisyc.com/files/2016WNRSeries1.html
+to get handicap: doc.css("p.divisionheader a").first #-> Alberg 30
+to get table of standings: 
+
 <!-- preferred CLI:
 
 type "regatta-results"
