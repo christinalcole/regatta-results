@@ -13,7 +13,17 @@ class RegattaResults::Scraper
     list_html = open("http://www.annapolisyc.com/files/2016WNRSeries1.html")
 
     doc = Nokogiri::HTML(list_html)
-    binding.pry
+
+    doc.css("tbody tr").each do |row|
+      boat_name = row.children[5].text
+      if boat_name == "\u00A0"
+        boat_name = "(no boat name listed)"
+      end
+      boat_list << boat_name
+    end
+    #binding.pry
+    boat_list
+
 
 
 # division name: doc.css("p.divisionheader a").attribute("name").children[0].text
