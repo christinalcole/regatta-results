@@ -51,7 +51,7 @@ class RegattaResults::CLI
       puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
 
 
-        @boats = RegattaResults::Regatta.boats  #newly added line
+        @boats = RegattaResults::Regatta.boats_raced  #newly added line
 
         input = gets.strip.downcase
 

@@ -1,37 +1,25 @@
 class RegattaResults::Regatta
 
-  attr_accessor :name, :boats, :url # :divisions, :race
+  #attr_accessor :name, :boats, :url # :divisions, :race
 
-  @@all = []
 
-  def initialize
-    @boats = []
+
+  def self.boats_raced
+    # should return a list of all the boat instances that raced in the series
+    puts <<-DOC
+      1. Xiberger
+      2. Wanda
+      3. Qa2
+      4. Monkey Dust
+      5. Gratitude
+      6. Hall Pass
+      7. Capricorne
+      8. MI2
+      9. Serenity
+      DOC
+
+
   end
-
-  def add_boat(boat)
-    @boats << boat
-  end
-
-  def self.all
-    @@all
-  end
-
-  # def boats
-  #   # should return a list of all the boat instances that raced in the series
-  #   puts <<-DOC
-  #     1. Xiberger
-  #     2. Wanda
-  #     3. Qa2
-  #     4. Monkey Dust
-  #     5. Gratitude
-  #     6. Hall Pass
-  #     7. Capricorne
-  #     8. MI2
-  #     9. Serenity
-  #     DOC
-  #
-  #     @@all
-  # end
 
   # def self.year
   #   # ultimately returns instances of Regatta as a list of regattas held in the year
