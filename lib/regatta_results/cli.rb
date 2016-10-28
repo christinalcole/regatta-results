@@ -54,7 +54,7 @@ class RegattaResults::CLI
         @boats = RegattaResults::Scraper.scrape_boat_list  # would prefer to call Boat method--not scraper directly
 
         @boats.each.with_index(1) do |boat, i|
-          puts "#{i}. #{boat}"
+          puts "#{i}. #{boat[:sail_number]} - #{boat[:name]}"
           #prefer to have
           #puts "#{i}. #{boat.sail_number} - #(boat.name) - #{boat.handicap}"
           # also would like a way to stop scrolling on list...

@@ -8,20 +8,31 @@ class RegattaResults::Scraper
 
   def self.scrape_boat_list
     boat_list = []
-    #student_hash = {}
+    boat_hash = {}
 
     list_html = open("http://www.annapolisyc.com/files/2016WNRSeries1.html")
 
     doc = Nokogiri::HTML(list_html)
 
     doc.css("tbody tr").each do |row|
-      boat_name = row.children[5].text
-      if boat_name == "\u00A0"
-        boat_name = "(no boat name listed)"
-      end
-      boat_list << boat_name
+      boat_hash = {
+        :name => row.children[5].text,
+        :sail_number => row.children[3].text,
+        :skipper => row.children[7].text,
+        :series_standing => row.children[1].text,
+        :series_points => row.children[19].text
+      }
+
+      #boat_name = row.children[5].text
+      # if boat_name == "\u00A0"
+      #   boat_name = "(no boat name listed)"
+      # end
+      #boat_list << boat_name
+
+      boat_list << boat_hash
     end
-    #binding.pry
+
+    binding.pry
     boat_list
 
 
