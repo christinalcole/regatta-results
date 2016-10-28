@@ -48,17 +48,10 @@ class RegattaResults::CLI
   def list_boats
     input = nil
     while input != "exit"
+
+      make_boats
+      display_boats
       puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
-
-
-        @boats = RegattaResults::Scraper.scrape_boat_list  # would prefer to call Boat method--not scraper directly
-
-        @boats.each.with_index(1) do |boat, i|
-          puts "#{i}. #{boat[:sail_number]} - #{boat[:name]}"
-          #prefer to have
-          #puts "#{i}. #{boat.sail_number} - #(boat.name) - #{boat.handicap}"
-          # also would like a way to stop scrolling on list...
-        end
 
         input = gets.strip.downcase
 
@@ -87,8 +80,20 @@ class RegattaResults::CLI
     end
   end
 
-    def goodbye
-      puts "See you next race!"
+  def make_boats
+    boat_array = RegattaResults::Scraper.scrape_boat_list
+    RegattaResults::Boat.create_from_collection(boat_array)
+  end
+
+  def display_boats
+    RegattaResults::Boat.all.each.with_index(1) do |boat, index|
+      puts "#{index}. #{boat.sail_number} - #{boat.name}"
     end
+  end
+
+
+  def goodbye
+    puts "See you next race!"
+  end
 
 end
