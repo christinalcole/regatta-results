@@ -20,8 +20,10 @@ class RegattaResults::Scraper
         :sail_number => row.children[3].text,
         :skipper => row.children[7].text,
         :series_standing => row.children[1].text,
-        :series_points => row.children[19].text
+        :series_points => row.children[19].text,
+        :series_finishes => [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text] #new
       }
+
 
       #boat_name = row.children[5].text
       # if boat_name == "\u00A0"
