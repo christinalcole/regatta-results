@@ -17,7 +17,7 @@ class RegattaResults::CLI
       case input
       when "1"
 
-        make_boats
+        make_boats("http://www.annapolisyc.com/files/2016WNRSeries1.html")
         detailed_view
         input = nil
         until input == "n"
@@ -39,10 +39,36 @@ class RegattaResults::CLI
         # input = gets.strip.to_i
         # display_the_boat(input)
       when "2"
-        puts "Here are the Series 2 boats"
+        RegattaResults::Boat.empty
+        make_boats("http://www.annapolisyc.com/files/2016WNRSeries2_751.html")
+        detailed_view
+        input = nil
+        until input == "n"
+
+        puts "\n\nWould you like to see details for another boat in this series? (y/n)"
+
+        input = gets.strip.downcase
+
+        if input == "y"
+          detailed_view
+        end
+      end
 
       when "3"
-        puts "Here are the Series 3 boats"
+        RegattaResults::Boat.empty
+        make_boats("http://www.annapolisyc.com/files/2016WNRSeries3_751.html")
+        detailed_view
+        input = nil
+        until input == "n"
+
+        puts "\n\nWould you like to see details for another boat in this series? (y/n)"
+
+        input = gets.strip.downcase
+
+        if input == "y"
+          detailed_view
+        end
+      end
 
       when "list"
         list_series
@@ -62,8 +88,8 @@ class RegattaResults::CLI
     DOC
   end
 
-  def make_boats
-    boat_array = RegattaResults::Scraper.scrape_boat_list
+  def make_boats(series_url)
+    boat_array = RegattaResults::Scraper.scrape_boat_list(series_url)
     RegattaResults::Boat.create_from_collection(boat_array)
   end
 

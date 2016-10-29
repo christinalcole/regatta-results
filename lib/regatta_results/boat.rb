@@ -19,6 +19,12 @@ class RegattaResults::Boat
     @@all
   end
 
+  def self.empty
+    if @@all.length != 0
+      @@all.clear
+    end
+  end
+
   #general model for a boat object
 
   # boat_1 = self.new

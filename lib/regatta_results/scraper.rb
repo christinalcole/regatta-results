@@ -6,11 +6,11 @@ class RegattaResults::Scraper
   # 3. Scrape the boats that raced in that series
   # 4. Scrape individual boats/instantiate Boat objects for that series, add them to the Regatta instance
 
-  def self.scrape_boat_list
+  def self.scrape_boat_list(series_url)
     boat_list = []
     boat_hash = {}
 
-    list_html = open("http://www.annapolisyc.com/files/2016WNRSeries1.html")
+    list_html = open(series_url)
 
     doc = Nokogiri::HTML(list_html)
 
