@@ -107,7 +107,55 @@ class RegattaResults::CLI
         puts "#{index}. #{boat.sail_number} - #{boat.name}"
       end
     when 2
-      RegattaResults::Boat.all[6,15].each.with_index(6) do |boat, index|
+      RegattaResults::Boat.all[6,15].each.with_index(7) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 3
+      RegattaResults::Boat.all[21,5].each.with_index(22) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 4
+      RegattaResults::Boat.all[26,20].each.with_index(27) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 5
+      RegattaResults::Boat.all[46,6].each.with_index(47) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 6
+      RegattaResults::Boat.all[52,16].each.with_index(53) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 7
+      RegattaResults::Boat.all[68,10].each.with_index(69) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 8
+      RegattaResults::Boat.all[78,5].each.with_index(79) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 9
+      RegattaResults::Boat.all[83,7].each.with_index(84) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 10
+      RegattaResults::Boat.all[90,8].each.with_index(91) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 11
+      RegattaResults::Boat.all[98,11].each.with_index(99) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 12
+      RegattaResults::Boat.all[109,9].each.with_index(110) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 13
+      RegattaResults::Boat.all[118,4].each.with_index(119) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 14
+      RegattaResults::Boat.all[122,10].each.with_index(123) do |boat, index|
         puts "#{index}. #{boat.sail_number} - #{boat.name}"
       end
     end
@@ -119,7 +167,7 @@ class RegattaResults::CLI
     puts ""
     puts "Hull name: #{boat.name}"
     puts "Skipper: #{boat.skipper}"
-    puts "Series overall standing: #{boat.series_standing}"
+    puts "Series overall standing within class: #{boat.series_standing}"
     puts "Series points: #{boat.series_points}"
     puts "Series finishes (bracketed finish indicates dropped race):"
     puts "\t race 1 - #{boat.series_finishes[0]}"
