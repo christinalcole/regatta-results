@@ -21,7 +21,7 @@ class RegattaResults::Scraper
         :skipper => row.children[7].text,
         :series_standing => row.children[1].text,
         :series_points => row.children[19].text,
-        :series_finishes => [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text] #new
+        :series_finishes => [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text, row.children[17].text] #new
       }
 
 
@@ -34,7 +34,7 @@ class RegattaResults::Scraper
       boat_list << boat_hash
     end
 
-    binding.pry
+    #binding.pry
     boat_list
 
 
