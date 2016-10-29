@@ -10,17 +10,26 @@ class RegattaResults::CLI
   end
 
   def menu
-    input = nil
-
-    until input == "exit"
-      puts "Enter the number of the series for which you'd like to see a list of PHRF 1 entries, 'list' to see 2016 series, or 'exit' to quit:"
-
+    # input = nil
+    #
+    # until input == "exit"
+      #puts "Enter the number of the series for which you'd like to see a list of PHRF 1 entries, 'list' to see 2016 series, or 'exit' to quit:"
+      puts "Enter the number of the series for which you'd like to see a list of entries, 'list' to see 2016 series, or 'exit' to quit:"
       input = gets.strip.downcase
 
       case input
       when "1"
-        puts "Here are the Series 1 boats"
-        list_boats
+        # puts "Here are the Series 1 boats"
+        # list_boats
+        make_boats
+        puts "#{RegattaResults::Boat.all.length} boats raced in Series 1 in the following handicaps:\n 1. Alberg 30 (6 boats) \t\t 8. J/35 (5 boats)\n 2. Etchells (15) \t\t\t 9. J/70 (7)\n 3. Farr 30 (5) \t\t\t 10.J/80 (8)\n 4. Harbor 20 (20) \t\t\t 11.PHRF 0 (11)\n 5. Herrschoff 12.5 (6) \t\t 12.PHRF 1 (9)\n 6. J/105 (16) \t\t\t\t 13.PHRF 2 (4)\n 7. J/30 (10) \t\t\t\t 14.PHRF 3 (10)\n\nEnter the number of the handicap of interest:"
+
+        range = gets.strip.to_i
+        display_boats(range)
+
+        puts "\nEnter the row number of the boat for which you'd like to see more information"
+        input = gets.strip.to_i
+        display_the_boat(input)
       when "2"
         puts "Here are the Series 2 boats"
         list_boats
@@ -34,7 +43,7 @@ class RegattaResults::CLI
       else
         puts "Invalid"
       end
-    end
+    #end
   end
 
   def list_series
@@ -45,51 +54,81 @@ class RegattaResults::CLI
     DOC
   end
 
-  def list_boats
-    input = nil
-    while input != "exit"
-
-      make_boats
-      display_boats
-      puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
-
-        input = gets.strip.downcase
-
-        case input #needs an invalid-entry case?
-        when "1"
-          puts "Xiberger's standings"
-        when "2"
-          puts "Wanda's standings"
-        when "3"
-          puts "This boat's standings"
-        when "4"
-          puts "That boat's standings"
-        when "5"
-          puts "more on boat 5"
-        when "6"
-          puts "and here's boat 6"
-        when "7"
-          puts "boat number 7..."
-        when "8"
-          puts "boat 8..."
-        when "9"
-          puts "last one, boat 9"
-        when "list"
-          list_boats
-        end
-    end
-  end
+  # def list_boats
+  #   input = nil
+  #   while input != "exit"
+  #
+  #     make_boats
+  #     display_boats
+  #     puts "These boats raced under PHRF 1.  Enter the boat's number to see its overall standings in the series:"
+  #
+  #       input = gets.strip.downcase
+  #
+  #       case input #needs an invalid-entry case?
+  #       when "1"
+  #         puts "Xiberger's standings"
+  #       when "2"
+  #         puts "Wanda's standings"
+  #       when "3"
+  #         puts "This boat's standings"
+  #       when "4"
+  #         puts "That boat's standings"
+  #       when "5"
+  #         puts "more on boat 5"
+  #       when "6"
+  #         puts "and here's boat 6"
+  #       when "7"
+  #         puts "boat number 7..."
+  #       when "8"
+  #         puts "boat 8..."
+  #       when "9"
+  #         puts "last one, boat 9"
+  #       when "list"
+  #         list_boats
+  #       end
+  #   end
+  # end
 
   def make_boats
     boat_array = RegattaResults::Scraper.scrape_boat_list
     RegattaResults::Boat.create_from_collection(boat_array)
   end
 
-  def display_boats
-    RegattaResults::Boat.all.each.with_index(1) do |boat, index|
-      puts "#{index}. #{boat.sail_number} - #{boat.name}"
+  # def display_boats
+  #   RegattaResults::Boat.all.each.with_index(1) do |boat, index|
+  #     puts "#{index}. #{boat.sail_number} - #{boat.name}"
+  #   end
+  # end
+
+  def display_boats(range)
+    case range
+    when 1
+      RegattaResults::Boat.all[0,6].each.with_index(1) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
+    when 2
+      RegattaResults::Boat.all[6,15].each.with_index(6) do |boat, index|
+        puts "#{index}. #{boat.sail_number} - #{boat.name}"
+      end
     end
   end
+
+  def display_the_boat(index)
+    boat = RegattaResults::Boat.all[index-1]
+    puts "---------Series info for Sail Number #{boat.sail_number}---------"
+    puts ""
+    puts "Hull name: #{boat.name}"
+    puts "Skipper: #{boat.skipper}"
+    puts "Series overall standing: #{boat.series_standing}"
+    puts "Series points: #{boat.series_points}"
+    puts "Series finishes (bracketed finish indicates dropped race):"
+    puts "\t race 1 - #{boat.series_finishes[0]}"
+    puts "\t race 2 - #{boat.series_finishes[1]}"
+    puts "\t race 3 - #{boat.series_finishes[2]}"
+    puts "\t race 4 - #{boat.series_finishes[3]}"
+    puts "\t race 5 - #{boat.series_finishes[4]}"
+  end
+
 
 
   def goodbye
