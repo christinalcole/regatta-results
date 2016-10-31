@@ -212,7 +212,16 @@ class RegattaResults::CLI
     puts "\t race 2 - #{boat.series_finishes[1]}"
     puts "\t race 3 - #{boat.series_finishes[2]}"
     puts "\t race 4 - #{boat.series_finishes[3]}"
-    puts "\t race 5 - #{boat.series_finishes[4]}"
+    if !boat.series_finishes[4].nil?
+      puts "\t race 5 - #{boat.series_finishes[4]}"
+    else
+      puts "\t race 5 - (no race 5 in this series)"
+    end
+    if !boat.series_finishes[5].nil?
+      puts "\t race 6 - #{boat.series_finishes[5]}"
+    else
+      puts "\t race 6 - (no race 6 in this series)\n"
+    end
   end
 
   def detailed_view

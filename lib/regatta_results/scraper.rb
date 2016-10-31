@@ -21,20 +21,19 @@ class RegattaResults::Scraper
         :skipper => row.children[7].text,
         :series_standing => row.children[1].text,
         :series_points => row.children[19].text,
-        :series_finishes => [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text, row.children[17].text] #new
       }
 
-
-      #boat_name = row.children[5].text
-      # if boat_name == "\u00A0"
-      #   boat_name = "(no boat name listed)"
-      # end
-      #boat_list << boat_name
+      if series_url.include?("Series1")
+        boat_hash[:series_finishes] = [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text, row.children[17].text]
+      elsif series_url.include?("Series2")
+        boat_hash[:series_finishes] = [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text]
+      elsif series_url.include?("Series3")
+        boat_hash[:series_finishes] = [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text, row.children[17].text, row.children[19].text]
+      end
 
       boat_list << boat_hash
     end
 
-    #binding.pry
     boat_list
 
 
