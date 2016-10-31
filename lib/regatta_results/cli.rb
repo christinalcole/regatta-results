@@ -16,6 +16,7 @@ class RegattaResults::CLI
 
       case input
       when "1"
+        RegattaResults::Boat.empty
         make_boats("http://www.annapolisyc.com/files/2016WNRSeries1.html")
         detailed_view
         input = nil
