@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Christina Cole"]
   spec.email         = ["christinal.cole@gmail.com"]
 
-  spec.summary       = %q{2016 AYC regatta results}
-  spec.description   = %q{Provides details on 2016 regattas scored by the Annapolis Yacht Club}
+  spec.summary       = %q{2016 AYC WNR results}
+  spec.description   = %q{Provides details on 2016 Wednesday Night Race regattas scored by the Annapolis Yacht Club}
   spec.homepage      = "https://github.com/christinalcole/regatta-results"
   spec.license       = "MIT"
 
@@ -31,9 +31,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.13"
-  #spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rake", "~> 11.3"
   spec.add_development_dependency "pry", ">=0"
   spec.add_dependency "nokogiri", ">=0"
-  
+
 end
