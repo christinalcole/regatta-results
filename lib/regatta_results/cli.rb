@@ -26,6 +26,8 @@ class RegattaResults::CLI
 
           if input == "y"
             detailed_view
+          elsif input != "n"
+            puts "Hmmm...not sure what you mean; enter 'y' or 'n':".colorize(:light_red)
           end
         end
       when "2"
@@ -39,6 +41,8 @@ class RegattaResults::CLI
 
           if input == "y"
             detailed_view
+          elsif input !="n"
+            puts "Hmmm...not sure what you mean; enter 'y' or 'n':".colorize(:light_red)
           end
         end
       when "3"
@@ -53,6 +57,8 @@ class RegattaResults::CLI
 
           if input == "y"
             detailed_view_series_3
+          elsif input !="n"
+            puts "Hmmm...not sure what you mean; enter 'y' or 'n':".colorize(:light_red)
           end
         end
       when "list"
@@ -60,7 +66,7 @@ class RegattaResults::CLI
       when "exit"
         goodbye
       else
-        puts "Invalid".colorize(:light_red)
+        puts "Hmmm...not sure what you mean: choose a series number, 'list,' or 'exit':".colorize(:light_red)
       end
     end
   end
