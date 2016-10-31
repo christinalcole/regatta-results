@@ -2,7 +2,7 @@ class RegattaResults::CLI
 
   def call
     puts "Here are the 2016 AYC Wednesday Night Race Series:".colorize(:light_yellow)
-    list_series # first-level data: user selects WNR series
+    list_series 
     menu
   end
 
