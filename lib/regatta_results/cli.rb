@@ -1,7 +1,7 @@
 class RegattaResults::CLI
 
   def call
-    puts "The 2016 WNR Series, PHRF 1:"
+    puts "Here are the 2016 AYC Wednesday Night Race Series:".colorize(:light_yellow)
     list_series # first-level data: user selects WNR series
     menu
   end
@@ -11,7 +11,7 @@ class RegattaResults::CLI
 
     until input == "exit"
 
-      puts "Enter the number of the series for which you'd like to see a list of entries, 'list' to see 2016 series, or 'exit' to quit:"
+      puts "Enter the number of the series for which you'd like to see a list of entries, 'list' to repeat the series list, or 'exit':".colorize(:light_yellow)
       input = gets.strip.downcase
 
       case input
@@ -20,8 +20,8 @@ class RegattaResults::CLI
         make_boats("http://www.annapolisyc.com/files/2016WNRSeries1.html")
         detailed_view
         input = nil
-        until input == "n" 
-          puts "\nWould you like to see details for another boat in this series? (y/n)"
+        until input == "n"
+          puts "\nWould you like to see details for another boat in this series? (y/n)".colorize(:light_yellow)
           input = gets.strip.downcase
 
           if input == "y"
@@ -34,7 +34,7 @@ class RegattaResults::CLI
         detailed_view
         input = nil
         until input == "n"
-          puts "\nWould you like to see details for another boat in this series? (y/n)"
+          puts "\nWould you like to see details for another boat in this series? (y/n)".colorize(:light_yellow)
           input = gets.strip.downcase
 
           if input == "y"
@@ -47,7 +47,7 @@ class RegattaResults::CLI
         detailed_view_series_3
         input = nil
         until input == "n"
-          puts "\nWould you like to see details for another boat in this series? (y/n)"
+          puts "\nWould you like to see details for another boat in this series? (y/n)".colorize(:light_yellow)
 
           input = gets.strip.downcase
 
@@ -60,7 +60,7 @@ class RegattaResults::CLI
       when "exit"
         goodbye
       else
-        puts "Invalid"
+        puts "Invalid".colorize(:light_red)
       end
     end
   end
@@ -202,47 +202,51 @@ class RegattaResults::CLI
 
   def display_the_boat(index)
     boat = RegattaResults::Boat.all[index-1]
-    puts "---------Series info for Sail Number #{boat.sail_number}---------"
+    puts "---------Series info for Sail Number #{boat.sail_number}---------".colorize(:light_red)
     puts ""
-    puts "Hull name: #{boat.name}"
-    puts "Skipper: #{boat.skipper}"
-    puts "Series overall standing within class: #{boat.series_standing}"
-    puts "Series points: #{boat.series_points}"
-    puts "Series finishes (bracketed finish indicates dropped race):"
-    puts "\t race 1 - #{boat.series_finishes[0]}"
-    puts "\t race 2 - #{boat.series_finishes[1]}"
-    puts "\t race 3 - #{boat.series_finishes[2]}"
-    puts "\t race 4 - #{boat.series_finishes[3]}"
+    puts "Hull name:".colorize(:light_yellow) + " #{boat.name}"
+    puts "Skipper:".colorize(:light_yellow) + " #{boat.skipper}"
+    puts "Series overall standing within class:".colorize(:light_yellow) + " #{boat.series_standing}"
+    puts "Series points (LowPoint, AYC Wed Penalties):".colorize(:light_yellow) + " #{boat.series_points}"
+    puts "Series finishes (bracketed finish indicates dropped race):".colorize(:light_yellow)
+    puts "\t race 1 -".colorize(:yellow) + " #{boat.series_finishes[0]}"
+    puts "\t race 2 -".colorize(:yellow) + " #{boat.series_finishes[1]}"
+    puts "\t race 3 -".colorize(:yellow) + " #{boat.series_finishes[2]}"
+    puts "\t race 4 -".colorize(:yellow) + " #{boat.series_finishes[3]}"
     if !boat.series_finishes[4].nil?
-      puts "\t race 5 - #{boat.series_finishes[4]}"
+      puts "\t race 5 -".colorize(:yellow) + " #{boat.series_finishes[4]}"
     else
-      puts "\t race 5 - (no race 5 in this series)"
+      puts "\t race 5 - (no race 5 in this series)".colorize(:light_black)
     end
     if !boat.series_finishes[5].nil?
-      puts "\t race 6 - #{boat.series_finishes[5]}"
+      puts "\t race 6 -".colorize(:yellow) + " #{boat.series_finishes[5]}"
     else
-      puts "\t race 6 - (no race 6 in this series)"
+      puts "\t race 6 - (no race 6 in this series)".colorize(:light_black)
     end
   end
 
   def detailed_view
-    puts "#{RegattaResults::Boat.all.length} boats raced in this series in the following handicaps:\n 1. Alberg 30 (6 boats) \t\t 8. J/35 (5 boats)\n 2. Etchells (15) \t\t\t 9. J/70 (7)\n 3. Farr 30 (5) \t\t\t 10.J/80 (8)\n 4. Harbor 20 (20) \t\t\t 11.PHRF 0 (11)\n 5. Herrschoff 12.5 (6) \t\t 12.PHRF 1 (9)\n 6. J/105 (16) \t\t\t\t 13.PHRF 2 (4)\n 7. J/30 (10) \t\t\t\t 14.PHRF 3 (10)\n\nEnter the number of the handicap of interest:"
+    puts "#{RegattaResults::Boat.all.length} boats raced in this series in the following handicaps:".colorize(:light_cyan)
+    puts " 1. Alberg 30 (6 boats) \t\t 8. J/35 (5 boats)\n 2. Etchells (15) \t\t\t 9. J/70 (7)\n 3. Farr 30 (5) \t\t\t 10.J/80 (8)\n 4. Harbor 20 (20) \t\t\t 11.PHRF 0 (11)\n 5. Herrschoff 12.5 (6) \t\t 12.PHRF 1 (9)\n 6. J/105 (16) \t\t\t\t 13.PHRF 2 (4)\n 7. J/30 (10) \t\t\t\t 14.PHRF 3 (10)"
+    puts "\nEnter the number of the handicap of interest:".colorize(:light_cyan)
 
     range = gets.strip.to_i
     display_boats(range)
 
-    puts "\nEnter the row number of the boat for which you'd like to see more information"
+    puts "\nEnter the row number of the boat for which you'd like to see more information".colorize(:light_yellow)
     input = gets.strip.to_i
     display_the_boat(input)
   end
 
   def detailed_view_series_3
-    puts "#{RegattaResults::Boat.all.length} boats raced in this series in the following handicaps:\n 1. Alberg 30 (6 boats) \t\t 8. J/35 (5 boats)\n 2. Etchells (15) \t\t\t 9. J/70 (7)\n 3. Farr 30 (5) \t\t\t 10.J/80 (8)\n 4. Harbor 20 (20) \t\t\t 11.PHRF 0 (12)\n 5. Herrschoff 12.5 (6) \t\t 12.PHRF 1 (10)\n 6. J/105 (16) \t\t\t\t 13.PHRF 2 (4)\n 7. J/30 (11) \t\t\t\t 14.PHRF 3 (10)\n\nEnter the number of the handicap of interest:"
+    puts "#{RegattaResults::Boat.all.length} boats raced in this series in the following handicaps:".colorize(:light_cyan)
+    puts " 1. Alberg 30 (6 boats) \t\t 8. J/35 (5 boats)\n 2. Etchells (15) \t\t\t 9. J/70 (7)\n 3. Farr 30 (5) \t\t\t 10.J/80 (8)\n 4. Harbor 20 (20) \t\t\t 11.PHRF 0 (12)\n 5. Herrschoff 12.5 (6) \t\t 12.PHRF 1 (10)\n 6. J/105 (16) \t\t\t\t 13.PHRF 2 (4)\n 7. J/30 (11) \t\t\t\t 14.PHRF 3 (10)"
+    puts "\nEnter the number of the handicap of interest:".colorize(:light_cyan)
 
     range = gets.strip.to_i
     display_boats_series_3(range)
 
-    puts "\nEnter the row number of the boat for which you'd like to see more information"
+    puts "\nEnter the row number of the boat for which you'd like to see more information".colorize(:light_yellow)
     input = gets.strip.to_i
     display_the_boat(input)
   end
