@@ -20,8 +20,8 @@ class RegattaResults::CLI
         make_boats("http://www.annapolisyc.com/files/2016WNRSeries1.html")
         detailed_view
         input = nil
-        until input == "n"
-          puts "\n\nWould you like to see details for another boat in this series? (y/n)"
+        until input == "n" 
+          puts "\nWould you like to see details for another boat in this series? (y/n)"
           input = gets.strip.downcase
 
           if input == "y"
@@ -34,7 +34,7 @@ class RegattaResults::CLI
         detailed_view
         input = nil
         until input == "n"
-          puts "\n\nWould you like to see details for another boat in this series? (y/n)"
+          puts "\nWould you like to see details for another boat in this series? (y/n)"
           input = gets.strip.downcase
 
           if input == "y"
@@ -47,7 +47,7 @@ class RegattaResults::CLI
         detailed_view_series_3
         input = nil
         until input == "n"
-          puts "\n\nWould you like to see details for another boat in this series? (y/n)"
+          puts "\nWould you like to see details for another boat in this series? (y/n)"
 
           input = gets.strip.downcase
 
@@ -221,7 +221,7 @@ class RegattaResults::CLI
     if !boat.series_finishes[5].nil?
       puts "\t race 6 - #{boat.series_finishes[5]}"
     else
-      puts "\t race 6 - (no race 6 in this series)\n"
+      puts "\t race 6 - (no race 6 in this series)"
     end
   end
 
