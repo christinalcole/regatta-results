@@ -9,3 +9,4 @@ require_relative "./regatta_results/scraper"
 require 'nokogiri'
 require 'open-uri'
 require 'pry'
+require 'colorize'
