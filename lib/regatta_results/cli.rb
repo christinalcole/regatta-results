@@ -90,10 +90,18 @@ class RegattaResults::CLI
     puts "\nEnter the number of the handicap of interest:".colorize(:light_cyan)
 
     range = gets.strip.to_i
+    until range !=0
+      puts "Hmm...not sure what you mean: enter the number of the handicap of interest:".colorize(:light_red)
+      range = gets.strip.to_i
+    end
     display_boats(range)
 
     puts "\nEnter the row number of the boat for which you'd like to see more information".colorize(:light_yellow)
     input = gets.strip.to_i
+    until input !=0
+      puts "Hmm...not sure what you mean: enter a row number for one of the boats".colorize(:light_red)
+      input = gets.strip.to_i
+    end
     display_the_boat(input)
   end
 
@@ -103,10 +111,18 @@ class RegattaResults::CLI
     puts "\nEnter the number of the handicap of interest:".colorize(:light_cyan)
 
     range = gets.strip.to_i
+    until range !=0
+      puts "Hmm...not sure what you mean: enter the number of the handicap of interest:".colorize(:light_red)
+      range = gets.strip.to_i
+    end
     display_boats_series_3(range)
 
     puts "\nEnter the row number of the boat for which you'd like to see more information".colorize(:light_yellow)
     input = gets.strip.to_i
+    until input !=0
+      puts "Hmm...not sure what you mean: enter a row number for one of the boats".colorize(:light_red)
+      input = gets.strip.to_i
+    end
     display_the_boat(input)
   end
 
