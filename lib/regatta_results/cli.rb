@@ -8,9 +8,9 @@ class RegattaResults::CLI
 
   def list_series
     puts <<-DOC
-    1. April 27 - June 1	WNR Series 1
-    2. June 8 - July 20	  WNR Series 2
-    3. July 27 - Aug 31	  WNR Series 3
+    1. April 27 - June 1\tWNR Series 1
+    2. June 8 - July 20\t\tWNR Series 2
+    3. July 27 - Aug 31\t\tWNR Series 3
     DOC
   end
 
