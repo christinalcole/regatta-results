@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/regatta_results'
+require_relative '../lib/regatta_results'
 
 RegattaResults::CLI.new.call
