@@ -14,7 +14,7 @@ class RegattaResults::Scraper
         :sail_number => row.children[3].text,
         :skipper => row.children[7].text,
         :series_standing => row.children[1].text,
-        :series_points => row.children[19].text,
+        :series_points => row.children[19].text
       }
 
       if series_url.include?("Series1")
@@ -23,6 +23,8 @@ class RegattaResults::Scraper
         boat_hash[:series_finishes] = [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text]
       elsif series_url.include?("Series3")
         boat_hash[:series_finishes] = [row.children[9].text, row.children[11].text, row.children[13].text, row.children[15].text, row.children[17].text, row.children[19].text]
+        boat_hash[:series_points] = row.children[21].text
+        #binding.pry
       end
 
       boat_list << boat_hash
